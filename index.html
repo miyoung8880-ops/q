@@ -1,0 +1,431 @@
+import React, { useState } from 'react';
+import { Zap, Target, DollarSign, MapPin, Clock, TrendingUp, Check, ArrowRight } from 'lucide-react';
+
+export default function QuickViewLanding() {
+  const [formData, setFormData] = useState({ name: '', phone: '', business: '' });
+  const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+    setFormData({ name: '', phone: '', business: '' });
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <header className="relative bg-gradient-to-br from-orange-500 via-red-500 to-orange-600 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.3),transparent)]"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24">
+          <div className="text-center mb-8">
+            <div className="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-6 border border-white/30">
+              <span className="text-sm font-bold">💡 Local Spark - 대전 전문 마케팅</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+              사장님, 장사 잘되는데<br />
+              <span className="text-yellow-300">왜 검색이 안되세요?</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-4 font-bold text-yellow-100">
+              3일 안에 초기 고객 '방문율'을 폭발시키는
+            </p>
+            <p className="text-lg md:text-xl mb-8 text-white/90">
+              대전 맞춤 솔루션
+            </p>
+            
+            <div className="bg-white/10 backdrop-blur-md border-2 border-yellow-300 rounded-2xl p-6 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg font-semibold">
+                '로컬 상권 퀵 뷰 마케터'가 사장님의 매장을<br />
+                가장 빠르고 매력적으로 대전 시민들에게 노출시킵니다
+              </p>
+            </div>
+            
+            <button 
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              className="bg-yellow-400 text-gray-900 px-10 py-5 rounded-full text-xl font-black hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-2xl inline-flex items-center gap-3"
+            >
+              🚀 3일 입소문 시작하기 (무료 상담)
+              <ArrowRight size={24} />
+            </button>
+          </div>
+          
+          <div className="mt-12 relative">
+            <div className="bg-white/20 backdrop-blur-lg rounded-3xl p-8 border border-white/30 shadow-2xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-4xl font-black text-yellow-300">3일</div>
+                  <div className="text-sm mt-2">콘텐츠 제작 완료</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-4xl font-black text-yellow-300">299K</div>
+                  <div className="text-sm mt-2">부담없는 시작 비용</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <div className="text-4xl font-black text-yellow-300">100%</div>
+                  <div className="text-sm mt-2">대전 지역 특화</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Pain Points Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
+            😥 혹시 이런 고민으로
+          </h2>
+          <h3 className="text-2xl md:text-3xl font-black text-center mb-12 text-orange-600">
+            마케팅을 망설이고 계신가요?
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { icon: "🤯", text: "블로그, 인스타... 뭘 해야 할지 복잡하고 시간도 없어요" },
+              { icon: "💸", text: "대행사에 맡기자니 비용이 너무 부담스러워요" },
+              { icon: "😔", text: "우리 매장만의 특별한 매력이 온라인에서 잘 안 보여요" },
+              { icon: "😰", text: "오픈했는데 홍보가 안돼서 초기 고객 방문이 너무 저조해요" }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:border-orange-500 transition-all">
+                <div className="flex items-start gap-4">
+                  <span className="text-4xl">{item.icon}</span>
+                  <p className="text-lg font-semibold text-gray-700 leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Value Proposition */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-4">
+            ✨ 퀵뷰 로컬러가 드리는
+          </h2>
+          <h3 className="text-2xl md:text-4xl font-black text-center mb-16 text-blue-600">
+            3가지 약속
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-8 border-2 border-orange-200 hover:shadow-2xl transition-all">
+              <div className="bg-orange-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <Zap className="text-white" size={32} />
+              </div>
+              <h4 className="text-2xl font-black mb-4 text-orange-600">
+                ⚡ 초(超)신속 노출
+              </h4>
+              <p className="text-lg font-bold mb-3">3일 내 콘텐츠 제작 및 배포 완료</p>
+              <p className="text-gray-700 leading-relaxed">
+                길게 기다릴 필요 없습니다. 주말 이슈, 계절 메뉴, 신규 오픈 소식을 가장 빠른 타이밍에 대전 지역 잠재 고객에게 전달합니다.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200 hover:shadow-2xl transition-all">
+              <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="text-white" size={32} />
+              </div>
+              <h4 className="text-2xl font-black mb-4 text-blue-600">
+                🎯 대전 지역 타겟팅
+              </h4>
+              <p className="text-lg font-bold mb-3">최적화된 콘텐츠 제작</p>
+              <p className="text-gray-700 leading-relaxed">
+                파워 블로거/로컬 콘텐츠 전문가의 시선으로, 지역 주민이 '정말 가고 싶은' 매력 포인트를 포착하고 정보 채널에 정확히 배포합니다.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-3xl p-8 border-2 border-yellow-200 hover:shadow-2xl transition-all">
+              <div className="bg-yellow-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                <DollarSign className="text-white" size={32} />
+              </div>
+              <h4 className="text-2xl font-black mb-4 text-yellow-600">
+                💰 효율적인 비용
+              </h4>
+              <p className="text-lg font-bold mb-3">확실한 초기 효과</p>
+              <p className="text-gray-700 leading-relaxed">
+                거품 뺀 '건당' 대행 수수료로 초기 비용 부담을 최소화하고, 초기 잠재 고객 방문율을 극대화하여 확실한 입소문 형성에 기여합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local Expertise */}
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <MapPin size={40} className="text-yellow-300" />
+            <h2 className="text-3xl md:text-4xl font-black">
+              '대전' 상권의 잠재력을 폭발시키는
+            </h2>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-black text-center mb-8 text-yellow-300">
+            유일한 마케팅
+          </h3>
+          
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/30">
+            <p className="text-xl leading-relaxed mb-6 text-center">
+              저희는 <span className="font-black text-yellow-300">대전 상권의 변화</span>를 가장 빠르게 포착합니다.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {['유성', '둔산', '중앙'].map((area) => (
+                <div key={area} className="bg-white/20 rounded-xl p-6 text-center">
+                  <div className="text-2xl font-black mb-2">{area}</div>
+                  <div className="text-sm">상권 특성 분석</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center mt-8 text-lg">
+              사장님의 매장이 어느 지역에서 가장 큰 시너지를 낼 수 있는지<br />
+              <span className="font-black text-yellow-300">분석하여 콘텐츠를 기획</span>합니다
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-4">
+            📈 3단계 퀵 뷰(Quick View)
+          </h2>
+          <h3 className="text-2xl md:text-4xl font-black text-center mb-16 text-orange-600">
+            마케팅 프로세스
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                day: '1일차',
+                title: '진단 & 기획',
+                icon: <Clock size={32} />,
+                desc: '사장님 매장 방문/상담 후, 콘텐츠 주제 및 핵심 매력 (퀵 뷰 포인트) 결정'
+              },
+              {
+                day: '2일차',
+                title: '콘텐츠 제작',
+                icon: <TrendingUp size={32} />,
+                desc: '현장에서 신속한 촬영 및 핵심 정보 담은 콘텐츠 제작'
+              },
+              {
+                day: '3일차',
+                title: '배포 & 확산',
+                icon: <Zap size={32} />,
+                desc: '제작된 콘텐츠를 블로그, 숏폼 채널 및 지역 커뮤니티에 동시 배포'
+              }
+            ].map((step, idx) => (
+              <div key={idx} className="relative">
+                <div className="bg-gray-50 rounded-3xl p-8 border-2 border-gray-200 hover:border-orange-500 transition-all h-full">
+                  <div className="bg-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-black mb-4">
+                    {idx + 1}
+                  </div>
+                  <div className="text-orange-600 font-black text-lg mb-2">{step.day}</div>
+                  <div className="text-blue-600 mb-4">{step.icon}</div>
+                  <h4 className="text-2xl font-black mb-4">{step.title}</h4>
+                  <p className="text-gray-700 leading-relaxed">{step.desc}</p>
+                </div>
+                {idx < 2 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                    <ArrowRight className="text-orange-500" size={32} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-orange-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-16">
+            💎 플랜 및 가격
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-3xl p-8 border-4 border-orange-500 shadow-2xl relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-6 py-2 rounded-full font-black">
+                가장 인기! 🔥
+              </div>
+              <h3 className="text-3xl font-black mb-4 mt-4">퀵 스타터</h3>
+              <p className="text-sm text-gray-600 mb-6">Quick Starter</p>
+              <div className="text-5xl font-black mb-6 text-orange-600">
+                ₩299,000
+                <span className="text-xl text-gray-500 font-normal"> / 1회</span>
+              </div>
+              
+              <ul className="space-y-4 mb-8">
+                {[
+                  '1회 집중 콘텐츠 제작',
+                  '핵심 채널 배포 (블로그/SNS)',
+                  '초기 입소문 형성',
+                  '대전 지역 타겟팅',
+                  '3일 완성 보장'
+                ].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <Check className="text-orange-500 flex-shrink-0" size={24} />
+                    <span className="font-semibold">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <p className="text-sm font-bold text-blue-600 mb-6">
+                ✅ 권장: 신규 오픈 매장, 계절 이슈 매장
+              </p>
+              
+              <button 
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                className="w-full bg-orange-500 text-white py-4 rounded-xl font-black text-lg hover:bg-orange-600 transition-all"
+              >
+                지금 시작하기
+              </button>
+            </div>
+            
+            <div className="bg-white rounded-3xl p-8 border-2 border-blue-500 shadow-xl">
+              <h3 className="text-3xl font-black mb-4">로컬 부스터</h3>
+              <p className="text-sm text-gray-600 mb-6">Local Booster</p>
+              <div className="text-5xl font-black mb-6 text-blue-600">
+                별도 협의
+              </div>
+              
+              <ul className="space-y-4 mb-8">
+                {[
+                  '월 3회 정기 콘텐츠 제작',
+                  '심화 배포 전략',
+                  '지속적인 노출 확보',
+                  '재방문율 증대',
+                  '맞춤형 전략 수립'
+                ].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <Check className="text-blue-600 flex-shrink-0" size={24} />
+                    <span className="font-semibold">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <p className="text-sm font-bold text-blue-600 mb-6">
+                ✅ 권장: 재방문율을 높이고 싶은 매장
+              </p>
+              
+              <button 
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                className="w-full bg-blue-600 text-white py-4 rounded-xl font-black text-lg hover:bg-blue-700 transition-all"
+              >
+                상담 신청하기
+              </button>
+            </div>
+          </div>
+          
+          <div className="mt-12 bg-yellow-100 border-2 border-yellow-400 rounded-2xl p-6 text-center">
+            <p className="text-lg font-black text-gray-800">
+              📌 특별 혜택: 지금 상담 신청하시는 사장님께는<br />
+              <span className="text-orange-600">'잠재 고객 방문 후기 유도 가이드'</span>를 무료로 제공합니다
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section id="contact" className="py-16 bg-gradient-to-br from-orange-600 to-red-600 text-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-6">
+            마케팅에 돈 낭비 마시고,
+          </h2>
+          <h3 className="text-2xl md:text-4xl font-black text-center mb-12 text-yellow-300">
+            3일 안에 결과를 확인하세요
+          </h3>
+          
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+            <h4 className="text-2xl md:text-3xl font-black text-gray-800 text-center mb-8">
+              🚀 무료 상담 신청하기
+            </h4>
+            
+            <div className="space-y-6">
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">사장님 성함 *</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none text-gray-800 text-lg"
+                  placeholder="홍길동"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">연락처 *</label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none text-gray-800 text-lg"
+                  placeholder="010-1234-5678"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">매장명 / 업종 *</label>
+                <input
+                  type="text"
+                  value={formData.business}
+                  onChange={(e) => setFormData({...formData, business: e.target.value})}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none text-gray-800 text-lg"
+                  placeholder="예: 홍길동 카페 / 카페"
+                />
+              </div>
+              
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-5 rounded-xl font-black text-xl hover:from-orange-600 hover:to-red-600 transition-all transform hover:scale-105 shadow-xl"
+              >
+                지금 바로 초기 입소문 폭발시키기! 🚀
+              </button>
+            </div>
+            
+            <p className="text-center text-gray-600 text-sm mt-6">
+              영업일 기준 24시간 내 연락드리겠습니다
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h3 className="text-2xl font-black mb-4">퀵뷰 로컬러 (QuickView Localler)</h3>
+          <p className="text-gray-400 mb-2">"3일 안에 터지는 우리 동네 입소문 폭발! 🚀"</p>
+          <p className="text-sm text-gray-500 mt-6">© 2024 QuickView Localler. All rights reserved.</p>
+        </div>
+      </footer>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div className="text-center">
+              <div className="text-6xl mb-4">🎉</div>
+              <h3 className="text-2xl font-black mb-4 text-gray-800">
+                상담 신청 완료!
+              </h3>
+              <p className="text-gray-600 mb-6">
+                영업일 기준 24시간 내에<br />
+                담당자가 연락드리겠습니다.
+              </p>
+              <button
+                onClick={() => setShowModal(false)}
+                className="bg-orange-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-orange-600 transition-all"
+              >
+                확인
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
